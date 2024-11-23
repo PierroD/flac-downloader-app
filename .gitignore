@@ -18,11 +18,14 @@ packages
 #*.ini
 
 #ignore Release
-FlacDownloader/FlacDownloader/bin/Release/
+FlacDownloader/bin/Release/
+FlacDownloaderUpdater/bin/Release/
 
-FlacDownloader/FlacDownloader/obj/Release/
-
+FlacDownloader/obj/Release/
+FlacDownloaderUpdater/obj/Release/
 #ignore Debug
-FlacDownloader/FlacDownloader/bin/Debug/
+FlacDownloader/bin/Debug/
+FlacDownloaderUpdater/bin/Debug/
 
-FlacDownloader/FlacDownloader/obj/Debug/
+FlacDownloader/obj/Debug/
+FlacDownloaderUpdater/obj/Debug/
