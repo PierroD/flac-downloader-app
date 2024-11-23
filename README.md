@@ -10,7 +10,7 @@ It was created for educational purposes, which is why the URLs are not hardcoded
 
 # Installation guide
 
-- [Download the lastest version]() - (check if some updates are needed)
+- [Download the lastest version](https://raw.githubusercontent.com/PierroD/flac-downloader-app/main/_updates/FlacDownloader%20v1.0.0.0.zip) - (check if some updates are needed)
 - Unzip the archive somewhere on your computer
 - Start `FlacDownloader.exe`
 - Enjoy :smiley:
