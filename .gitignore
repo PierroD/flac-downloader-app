@@ -1,0 +1,28 @@
+#ignore the solution (.sln)
+*.sln
+
+#ignore the Visual studio temp something (.vs folder)
+.vs/
+
+#ignore the logfiles & txtfiles
+*.log
+*.txt
+
+#ignore the portable version (.pdb)
+*.pdb
+
+#ignore packages
+packages
+
+#ignore ini files (.ini)
+#*.ini
+
+#ignore Release
+FlacDownloader/FlacDownloader/bin/Release/
+
+FlacDownloader/FlacDownloader/obj/Release/
+
+#ignore Debug
+FlacDownloader/FlacDownloader/bin/Debug/
+
+FlacDownloader/FlacDownloader/obj/Debug/
