@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3AA483E2-698E-4654-B5D7-B7C85D727575}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FlacDownloader</RootNamespace>
+    <AssemblyName>FlacDownloader</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>FlacDownloader.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\Market\LINDRA - Market\packages\Guna.UI2.WinForms.2.0.3.2\lib\net40\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\AlbumResponse.cs" />
+    <Compile Include="Classes\ArtistResponse.cs" />
+    <Compile Include="Classes\ContributorResponse.cs" />
+    <Compile Include="Classes\APIResponse.cs" />
+    <Compile Include="Classes\DownloadQueue.cs" />
+    <Compile Include="Classes\GenreDataResponse.cs" />
+    <Compile Include="Classes\GoToObject.cs" />
+    <Compile Include="Classes\Historic.cs" />
+    <Compile Include="Classes\LocalFileObject.cs" />
+    <Compile Include="Classes\MusicSelected.cs" />
+    <Compile Include="Classes\MusicWorkerState.cs" />
+    <Compile Include="Classes\Navigation.cs" />
+    <Compile Include="Classes\SearchResponse.cs" />
+    <Compile Include="Classes\Settings.cs" />
+    <Compile Include="Classes\TrackResponse.cs" />
+    <Compile Include="Enums\FromEnum.cs" />
+    <Compile Include="Enums\GoToEnum.cs" />
+    <Compile Include="Enums\LocalFilesEnum.cs" />
+    <Compile Include="Enums\OutputFormatEnum.cs" />
+    <Compile Include="Enums\SearchByEnum.cs" />
+    <Compile Include="FormFlacDownloader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFlacDownloader.Designer.cs">
+      <DependentUpon>FormFlacDownloader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\AppColors.cs" />
+    <Compile Include="Utils\AppSettings.cs" />
+    <Compile Include="Utils\DateHelper.cs" />
+    <Compile Include="Utils\FolderHelper.cs" />
+    <Compile Include="Utils\HTTPDownloader.cs" />
+    <Compile Include="Utils\ImageHelpers.cs" />
+    <Compile Include="Utils\YTdlpDownloader.cs" />
+    <Compile Include="Utils\GoToObjectParser.cs" />
+    <Compile Include="Utils\HttpClientExtensions.cs" />
+    <Compile Include="Utils\UserControlHelper.cs" />
+    <Compile Include="Views\UC_Album.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Album.Designer.cs">
+      <DependentUpon>UC_Album.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_AlbumTrack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_AlbumTrack.Designer.cs">
+      <DependentUpon>UC_AlbumTrack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Artist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Artist.Designer.cs">
+      <DependentUpon>UC_Artist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Downloads.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Downloads.Designer.cs">
+      <DependentUpon>UC_Downloads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_DownloadTrack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_DownloadTrack.Designer.cs">
+      <DependentUpon>UC_DownloadTrack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Home.Designer.cs">
+      <DependentUpon>UC_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_HomeAlbumCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_HomeAlbumCard.Designer.cs">
+      <DependentUpon>UC_HomeAlbumCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_HomeArtistCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_HomeArtistCard.Designer.cs">
+      <DependentUpon>UC_HomeArtistCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_LocalFiles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_LocalFiles.Designer.cs">
+      <DependentUpon>UC_LocalFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_LocalFilesAlbum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_LocalFilesAlbum.Designer.cs">
+      <DependentUpon>UC_LocalFilesAlbum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_LocalFilesTrack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_LocalFilesTrack.Designer.cs">
+      <DependentUpon>UC_LocalFilesTrack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_MusicPlayer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_MusicPlayer.Designer.cs">
+      <DependentUpon>UC_MusicPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Search.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Search.Designer.cs">
+      <DependentUpon>UC_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_SearchFirstResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_SearchFirstResult.Designer.cs">
+      <DependentUpon>UC_SearchFirstResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_SearchResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_SearchResult.Designer.cs">
+      <DependentUpon>UC_SearchResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Settings.Designer.cs">
+      <DependentUpon>UC_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Track.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Track.Designer.cs">
+      <DependentUpon>UC_Track.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormFlacDownloader.resx">
+      <DependentUpon>FormFlacDownloader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\UC_Album.resx">
+      <DependentUpon>UC_Album.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_AlbumTrack.resx">
+      <DependentUpon>UC_AlbumTrack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Artist.resx">
+      <DependentUpon>UC_Artist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Downloads.resx">
+      <DependentUpon>UC_Downloads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_DownloadTrack.resx">
+      <DependentUpon>UC_DownloadTrack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Home.resx">
+      <DependentUpon>UC_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_HomeAlbumCard.resx">
+      <DependentUpon>UC_HomeAlbumCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_HomeArtistCard.resx">
+      <DependentUpon>UC_HomeArtistCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_LocalFiles.resx">
+      <DependentUpon>UC_LocalFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_LocalFilesAlbum.resx">
+      <DependentUpon>UC_LocalFilesAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_LocalFilesTrack.resx">
+      <DependentUpon>UC_LocalFilesTrack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_MusicPlayer.resx">
+      <DependentUpon>UC_MusicPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Search.resx">
+      <DependentUpon>UC_Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_SearchFirstResult.resx">
+      <DependentUpon>UC_SearchFirstResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_SearchResult.resx">
+      <DependentUpon>UC_SearchResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Settings.resx">
+      <DependentUpon>UC_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Track.resx">
+      <DependentUpon>UC_Track.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DarkMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwonload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Voice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Artist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Track.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Done.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddedToList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Updates.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DALL·E-2024-11-23-22.45.55-A-flat-app-icon-for-a-music-downloader-called-_FlacDownloader_.ico" />
+    <Content Include="FlacDownloader.ico" />
+    <None Include="Resources\FlacDownloader.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
