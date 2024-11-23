@@ -255,7 +255,7 @@ namespace FlacDownloader.Views
 
         private void ToogleDeleteButton(bool isEnable)
         {
-            buttonStopDownloads.Visible = isEnable;
+            buttonStopDownloads.Visible = !isEnable;
             UserControlHelper.CallEventOnAllPanels(flowLayoutPanelResults, "ToogleDeleteButton", isEnable);
         }
 

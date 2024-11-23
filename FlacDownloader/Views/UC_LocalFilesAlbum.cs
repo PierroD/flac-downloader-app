@@ -47,6 +47,8 @@ namespace FlacDownloader.Views
             labelArtsitName.ForeColor = AppColors.textColor;
             buttonOpenFolder.ForeColor = AppColors.primaryColor;
             buttonOpenFolder.FillColor = AppColors.backgroundSecondaryColor;
+            buttonSeeTracks.ForeColor = AppColors.primaryColor;
+            buttonSeeTracks.FillColor = AppColors.backgroundSecondaryColor;
             separator.ForeColor = AppColors.textColor;
         }
 

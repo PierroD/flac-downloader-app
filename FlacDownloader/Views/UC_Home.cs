@@ -42,6 +42,8 @@ namespace FlacDownloader.Views
             labelArtists.ForeColor = AppColors.textColor;
             labelAlbum.ForeColor = AppColors.textColor;
             labelDownloaded.ForeColor = AppColors.textColor;
+            buttonRefresh.FillColor = AppColors.backgroundSecondaryColor;
+            UserControlHelper.CallEventOnAllPanels(flowLayoutPanelArtists, "LoadAppColor", null);
             UserControlHelper.CallEventOnAllPanels(flowLayoutPanelAlbums, "LoadAppColor", null);
         }
 
@@ -86,6 +88,11 @@ namespace FlacDownloader.Views
             flowLayoutPanelArtists.ResumeLayout();
             this.ResumeLayout();
 
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

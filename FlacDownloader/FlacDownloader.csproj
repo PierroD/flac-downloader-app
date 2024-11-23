@@ -403,7 +403,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DALL·E-2024-11-23-22.45.55-A-flat-app-icon-for-a-music-downloader-called-_FlacDownloader_.ico" />
     <Content Include="FlacDownloader.ico" />
     <None Include="Resources\FlacDownloader.png" />
   </ItemGroup>

@@ -33,12 +33,13 @@
             this.flowLayoutPanelAlbums = new System.Windows.Forms.FlowLayoutPanel();
             this.labelAlbum = new System.Windows.Forms.Label();
             this.labelDownloaded = new System.Windows.Forms.Label();
+            this.buttonRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // labelArtists
             // 
             this.labelArtists.AutoSize = true;
-            this.labelArtists.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelArtists.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelArtists.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelArtists.Location = new System.Drawing.Point(19, 68);
             this.labelArtists.Name = "labelArtists";
@@ -70,7 +71,7 @@
             // labelAlbum
             // 
             this.labelAlbum.AutoSize = true;
-            this.labelAlbum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelAlbum.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelAlbum.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAlbum.Location = new System.Drawing.Point(19, 352);
             this.labelAlbum.Name = "labelAlbum";
@@ -81,7 +82,7 @@
             // 
             // labelDownloaded
             // 
-            this.labelDownloaded.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelDownloaded.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelDownloaded.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDownloaded.Location = new System.Drawing.Point(0, 0);
             this.labelDownloaded.Name = "labelDownloaded";
@@ -90,10 +91,28 @@
             this.labelDownloaded.Text = "Downloaded";
             this.labelDownloaded.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.BorderRadius = 8;
+            this.buttonRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonRefresh.ForeColor = System.Drawing.Color.White;
+            this.buttonRefresh.Image = global::FlacDownloader.Properties.Resources.Refresh;
+            this.buttonRefresh.Location = new System.Drawing.Point(8, 3);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(38, 36);
+            this.buttonRefresh.TabIndex = 12;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // UC_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.labelDownloaded);
             this.Controls.Add(this.flowLayoutPanelAlbums);
             this.Controls.Add(this.labelAlbum);
@@ -114,5 +133,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAlbums;
         private System.Windows.Forms.Label labelAlbum;
         private System.Windows.Forms.Label labelDownloaded;
+        private Guna.UI2.WinForms.Guna2Button buttonRefresh;
     }
 }
